@@ -21,8 +21,14 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|jpeg|gif)$/,
+        test: /\.(png|jpe?g|gif)$/i,
         use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'images/[name].[hash:8].[ext]',
+            },
+          },
           {
             loader: 'responsive-loader',
             options: {
@@ -30,8 +36,35 @@ module.exports = {
               sizes: [300, 600, 900],
               placeholder: true,
               placeholderSize: 50,
-              name: 'images/[name]-[width].[ext]',
+              name: '[name]-[width]',
+              outputPath: 'images/',
               format: 'webp',
+              quality: 70,
+            },
+          },
+          {
+            loader: 'responsive-loader',
+            options: {
+              adapter: require('responsive-loader/sharp'),
+              sizes: [300, 600, 900],
+              placeholder: true,
+              placeholderSize: 50,
+              name: '[name]-[width]',
+              outputPath: 'images/',
+              format: 'jpg',
+              quality: 70,
+            },
+          },
+          {
+            loader: 'responsive-loader',
+            options: {
+              adapter: require('responsive-loader/sharp'),
+              sizes: [300, 600, 900],
+              placeholder: true,
+              placeholderSize: 50,
+              name: '[name]-[width]',
+              outputPath: 'images/',
+              format: 'png',
               quality: 70,
             },
           },
