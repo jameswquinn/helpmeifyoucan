@@ -7,19 +7,11 @@ export function App() {
   return (
     <div class="app">
       <h1>Responsive Image Example</h1>
-      <picture>
-        <source
-          type="image/jpeg"
-          srcSet={responsiveImageJpg.srcSet}
+
+        <img src={responsiveImageJpg.src} srcSet={responsiveImageJpg.srcSet}
           sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 900px"
-        />
-        <source
-          type="image/png"
-          srcSet={responsiveImagePng.srcSet}
-          sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 900px"
-        />
-        <img src={responsiveImagePng.src} alt="Example" loading="lazy" />
-      </picture>
+          alt="Example" loading="lazy" />
+
     </div>
   );
 }
