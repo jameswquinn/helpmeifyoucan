@@ -9,11 +9,6 @@ export function App() {
       <h1>Responsive Image Example</h1>
       <picture>
         <source
-          type="image/webp"
-          srcSet={responsiveImageWebp.srcSet}
-          sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 900px"
-        />
-        <source
           type="image/jpeg"
           srcSet={responsiveImageJpg.srcSet}
           sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 900px"
